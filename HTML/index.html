@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <meta http-equiv="refresh" content="10; URL=http://127.0.0.1:5500/index.html"> -->
+
+    <meta http-equiv="Content-Language" content="ru">
+
+    <meta name="keywords" content="keyword1 keyword2">
+
+    <meta name="lang" content="">
+
+
+    <title>Document</title>
+
+
+    <style>
+        #inlinespan {
+            border: 1px solid red;
+            font-size: 35px;
+            width: 50px;
+            height: 50px;
+        }
+
+        p {
+            display: inline-block;
+            border: 1px solid red;
+            font-size: 35px;
+            width: 750px;
+            height: 150px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- Inline, Inline-block , block -->
+
+    <h1>Span testing</h1>
+
+    <span id="inlinespan">inline span</span>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus harum maiores dicta magnam blanditiis
+        suscipit?</p>
+
+    <h1>Span testing</h1>
+
+
+
+    <ol start="5" reversed>
+        <li>hyy</li>
+        <li>byy</li>
+    </ol>
+
+    <!--  in case of start it works as dictionary order -->
+
+    <ol type="a" start="25">
+        <li>hyy</li>
+        <li>byy</li>
+        <li>byy</li>
+        <li>byy</li>
+        <li>byy</li>
+        <li>byy</li>
+    </ol>
+
+    <!-- we can add styles as per required also we can add inline type and style in <li> tag itself -->
+
+    <ul style="list-style: square;">
+
+        <li type="A">hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+
+    </ul>
+
+
+    <!-- HTML Entities -->
+
+    <h4>Hello &copy; world &reg;</h4>
+
+    <!-- If we write just Sandbox and not pass any value then it follow all restriction such as : block form submission , block script execution , disable APIs -->
+
+    <!-- If we want to perform certain operation then we have to give permission in sandbox  -->
+
+    <iframe src="./temp.html" frameborder="0" width="400" sandbox="allow-modals"></iframe>
+
+
+    <!-- Canvas  -->
+
+
+
+
+    <!-- <h1>HTML Canvas Example</h1>
+    <canvas id="myCanvas" width="400" height="200" style="border:1px solid black;"></canvas>
+
+    <script>
+        // Get a reference to the canvas element
+        var canvas = document.getElementById("myCanvas");
+
+        // Get the 2d drawing context
+
+        var ctx = canvas.getContext("2d");
+
+        // Set the fill color
+
+        ctx.fillRect = "blue";
+
+        // Draw a filled rectangle
+
+        ctx.fillRect(50, 50, 300, 100);
+
+    </script> -->
+
+
+
+    <!-- Canvas  -->
+
+    <!-- To make div editable -->
+
+    <div contenteditable="" style="border: 1px black solid; width: 150px; height: 150px;">hello</div>
+
+
+    <!-- multiple selection in select tag  -->
+
+    <select id="st" style="width: 150px; margin: 100px 250px;" multiple>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <script>
+
+        //  multiple selection in select tag 
+
+        document.getElementById("st").addEventListener('change', (e) => {
+
+            let data = Array.from(e.target.selectedOptions).map((op) => op.value);
+
+            console.log(data)
+        })
+
+
+    </script>
+
+    <h2>hello world</h2>
+    <pre style="font-size: 21px;">hello       <h2>hello         world</h2>                        world</pre>
+
+
+
+
+    <input type="text" list="meradata">
+    <datalist id="meradata">
+        <option value="1">1</option>
+    </datalist>
+
+
+    <!-- Event delegation -->
+
+    <div onchange="handlechange(event)">
+        <input type="radio" name="sel" value="asc">
+        <input type="radio" name="sel" value="desc">
+    </div>
+
+    <div onclick="handleclick(event)">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    function handlechange(e) {
+        console.log(e.target.value);
+
+    }
+    function handleclick(e) {
+        console.log(e.target.innerText);
+    }
+</script>
