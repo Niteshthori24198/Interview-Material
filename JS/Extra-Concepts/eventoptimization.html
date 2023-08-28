@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body,
+        * {
+            text-align: center;
+            font-size: 21px;
+            margin: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #parentdiv {
+            width: 400px;
+            border: 2px solid red;
+            height: 200px;
+            padding: 50px;
+            cursor: pointer;
+        }
+
+        #childdiv {
+            width: 250px;
+            border: 2px solid green;
+            height: 120px;
+            padding: 25px;
+            cursor: pointer;
+        }
+
+        #grandchildbtn {
+            width: 150px;
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+            padding: 15px;
+            margin: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <!--  Event Delegation -->
+
+
+    <div>
+
+        <ul id="todoitems">
+            <li>Task-1<button>delete</button></li>
+            <li>Task-2<button>delete</button></li>
+            <li>Task-3<button>delete</button></li>
+            <li>Task-4<button>delete</button></li>
+        </ul>
+
+    </div>
+
+    <script>
+
+        const todoitems = document.getElementById('todoitems');
+
+
+        todoitems.addEventListener("click", (e) => {
+            e.target.parentElement.remove()
+        })
+
+
+    </script>
+
+
+
+
+    <!-- Event Propagation -->
+
+
+
+    <div id="parentdiv">
+
+        <div id="childdiv">
+
+            <button id="grandchildbtn">Click here</button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Ways to stop event propagation :   -->
+
+    <!--
+
+        1. > stoppropagation : - it simply stoped the event bubbling after that level.
+
+        2. > stopImmidiatepropagation : - It stops bubbling as well as also stops all other event listner of that level too.
+
+
+    -->
+
+
+    <script>
+
+        document.getElementById('parentdiv').addEventListener("click", (e) => {
+            console.log('Parent clicked');
+            e.stopPropagation()
+        }, { capture: true })
+
+
+        document.getElementById('childdiv').addEventListener("click", (e) => {
+            console.log("Child clicked");
+
+            e.stopPropagation()
+
+            e.stopImmediatePropagation()
+
+        })
+
+
+        document.getElementById('childdiv').addEventListener("click", (e) => {
+            console.log('Child Second event triggered');
+
+        })
+
+
+        document.getElementById('grandchildbtn').addEventListener("click", (e) => {
+            console.log('GrandChild Btn clicked');
+
+        }, { capture: true })
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
