@@ -36,7 +36,7 @@ function employee(name, age) {
 
 const emp = employee("nitesh", 25)
 
-emp.printdata()
+emp.printdata() // implicit binding.
 
 
 

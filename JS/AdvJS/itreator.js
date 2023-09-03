@@ -17,22 +17,22 @@ const colors = ['red', 'green', 'blue'];
 
 // Step 1: Obtain an iterator
 
-// const iterator = colors[Symbol.iterator]();
+const iterator = colors[Symbol.iterator]();
 
-// console.log(iterator)
+console.log(iterator)
 
-// // Step 2 and 3: Use the iterator to loop through the array
+// Step 2 and 3: Use the iterator to loop through the array
 
-// let next = iterator.next();
+let next = iterator.next();
 
-// console.log(next)
+console.log(next)
 
-// while (!next.done) {
+while (!next.done) {
 
-//     console.log(next.value);
+    console.log(next.value);
 
-//     next = iterator.next();
-// }
+    next = iterator.next();
+}
 
 
 

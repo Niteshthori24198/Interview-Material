@@ -23,7 +23,8 @@
             border: 1px solid red;
             font-size: 35px;
             width: 50px;
-            height: 50px;
+            height: 150px;
+            margin: 150px;
         }
 
         p {
@@ -32,7 +33,7 @@
             font-size: 35px;
             width: 750px;
             height: 150px;
-
+            margin: 150px;
         }
     </style>
 
@@ -53,14 +54,14 @@
 
 
 
-    <ol start="5" reversed>
+    <ol start="5" type="1" reversed>
         <li>hyy</li>
         <li>byy</li>
     </ol>
 
     <!--  in case of start it works as dictionary order -->
 
-    <ol type="a" start="25">
+    <ol type="a" start="2" reversed>
         <li>hyy</li>
         <li>byy</li>
         <li>byy</li>
@@ -90,7 +91,7 @@
 
     <!-- If we want to perform certain operation then we have to give permission in sandbox  -->
 
-    <iframe src="./temp.html" frameborder="0" width="400" sandbox="allow-modals"></iframe>
+    <iframe src="./temp.html" frameborder="0" width="400" sandbox></iframe>
 
 
     <!-- Canvas  -->
@@ -125,12 +126,12 @@
 
     <!-- To make div editable -->
 
-    <div contenteditable="" style="border: 1px black solid; width: 150px; height: 150px;">hello</div>
+    <div contenteditable="true" style="border: 1px black solid; width: 150px; height: 150px;">hello</div>
 
 
     <!-- multiple selection in select tag  -->
 
-    <select id="st" style="width: 150px; margin: 100px 250px;" multiple>
+    <select id="st" style="width: 150px; margin: 100px 250px;" multiple size="2">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -144,7 +145,7 @@
 
         document.getElementById("st").addEventListener('change', (e) => {
 
-            let data = Array.from(e.target.selectedOptions).map((op) => op.value);
+            let data = Array.from(e.target.selectedOptions).map((op)=>op.value)
 
             console.log(data)
         })
