@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <input type="text" id="msg" placeholder="enter msg">
+        <button onclick="handleSend()">Send</button>
+    </div>
+
+</body>
+
+</html>
+
+
+<script>
+
+    const socket = new WebSocket('ws://localhost:3001')
+
+    function handleSend() {
+
+        const msg = document.getElementById('msg').value;
+
+        socket.onopen = () => {
+            console.log('conection made')
+        }
+
+        socket.onmessage = (msg) => {
+            console.log(msg.data)
+        }
+
+        socket.onclose = () => {
+            console.log('Connection closed.')
+        }
+
+        socket.send(msg)
+
+    }
+
+
+
+</script>

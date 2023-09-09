@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket - IO</title>
+
+    <!-- importing socket.io library in front end -->
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+        integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous"></script>
+
+
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        #startbox {
+            width: 30%;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #usermsg {
+            border: none;
+            border-bottom: 1px solid black;
+            border-radius: 10px;
+            width: 300px;
+            height: 20px;
+            text-align: center;
+        }
+
+        #sendbtn {
+            width: 60px;
+            background-color: black;
+            color: aqua;
+            font-size: 15px;
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        .chatbox {
+            width: 40%;
+            border: 1px solid black;
+            margin: 75px auto;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <h2>Chat Application using Socket - io</h2>
+
+    <div id="startbox">
+
+        <input type="text" placeholder="Enter message here" id="usermsg">
+
+        <button id="sendbtn">Send</button>
+
+
+    </div>
+
+    <h2>Total Online Clients :- <span id="count"></span> </h2>
+
+    <div class="chatbox">
+
+    </div>
+
+
+
+
+</body>
+
+</html>
+
+
+<script>
+
+    const socket = io('http://localhost:3000', { transports: ['websocket'] });
+
+
+
+    socket.on('usercount', (data) => {
+        console.log('user count', data)
+        document.getElementById('count').innerText = data
+    })
+
+
+
+
+    let chatbox = document.querySelector(".chatbox")
+
+
+    socket.on("usermsg", (msg) => {
+
+        console.log(msg)
+
+        chatbox.innerHTML += `<div class="chat"><p>${msg}</p></div>`;
+
+    })
+
+
+
+    let sendbtn = document.getElementById("sendbtn")
+
+    let usermsg = document.getElementById("usermsg")
+
+
+    sendbtn.addEventListener("click", () => {
+
+        if (usermsg.value) {
+
+            let message = usermsg.value
+
+            socket.emit("chat", message)
+        }
+
+        else {
+            alert("enter some text to send")
+        }
+
+    })
+
+</script>
