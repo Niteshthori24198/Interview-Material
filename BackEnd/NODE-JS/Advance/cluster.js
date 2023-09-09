@@ -36,7 +36,7 @@ if (cluster.isMaster) {
 
     // to check number of worker processes
 
-    console.log(`number of workers thread`, cluster.workers)
+    console.log(`number of workers thread`, Object.keys(cluster.workers).length)
 
 
 
@@ -60,8 +60,6 @@ if (cluster.isMaster) {
     server.listen(3000, () => {
         console.log('server running')
     })
-
-
 
 
 }
