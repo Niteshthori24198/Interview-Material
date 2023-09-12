@@ -233,7 +233,7 @@ use('aggregatecollection')
 db.getCollection('users').aggregate([
     {
         $lookup: {
-            from: "userdetail",
+            from: "userdetail", // joined cool
             localField: 'address',
             foreignField: 'address',
             as: 'userInfo'
