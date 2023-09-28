@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="5;" > --->
+    <title>Document</title>
+    <style>
+        /* width-height not works as well as margin top-bottom not works */
+
+        span {
+            border: 2px solid red;
+            width: 100%;
+            height: 150px;
+            margin: 0px 100px;
+            
+        }
+
+        .edit {
+            border: 1px solid purple;
+            height: 100px;
+        }
+
+        .gp {
+            border: 2px solid green;
+            height: 20vh;
+            padding: 100px;
+        }
+
+        .p {
+            border: 2px solid magenta;
+            padding: 20px;
+            height: 20vh;
+        }
+
+
+        #baap {
+            border: 2px solid cyan;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #baap {
+            display: grid;
+            place-items: center;
+            border: 2px solid magenta;
+            height: 100vh;
+        }
+
+        #baap {
+            position: relative;
+            height: 100vh;
+        }
+
+        #beta {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        Welcome &quot; John &quot; &amp; &apos;Julia&apos; &copy; Don
+    </h1>
+
+
+    <span>Nitesh Lorem ipsum dolor sit amet consectetur adipisicing.</span>
+    <span>Nitesh Lorem ipsum dolor sit amet consectetur adipisicing.</span>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, blanditiis.</p>
+
+
+
+    <ol type="A" start="1" reversed>
+        <li></li>
+        <li></li>
+    </ol>
+
+    <ul style="list-style: circle;">
+        <li></li>
+        <li></li>
+    </ul>
+
+
+    <div contenteditable="true" class="edit">
+
+    </div>
+
+
+    <select style="width: 150px; margin: 100px 250px;" multiple size="2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <script>
+
+        const ele = document.querySelector('select');
+
+        ele.addEventListener('change', (e) => {
+            const data = Array.from(e.target.selectedOptions).map((op) => op.value);
+            console.log(data)
+        })
+
+    </script>
+
+    <input type="text" list="val">
+    <datalist id="val">
+
+        <option value="1">1</option>
+
+    </datalist>
+
+
+    <div onclick="fun(event)">
+        <input type="radio" value="x" name="a" id="">
+        <input type="radio" value="y" name="a" id="">
+    </div>
+
+
+    <div class="gp">Grand Parent
+
+        <div class="p">Parent
+            <button class="c">click here</button>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        document.querySelector('.c').addEventListener('click', (e) => {
+            console.log('Button')
+        })
+        document.querySelector('.p').addEventListener('click', (e) => {
+            console.log('Parent');
+            e.stopImmediatePropagation()
+        })
+        document.querySelector('.p').addEventListener('click', (e) => {
+            console.log('Parent 1')
+        })
+        document.querySelector('.gp').addEventListener('click', (e) => {
+            console.log('Grand  Parent')
+        })
+
+
+    </script>
+    <div>
+        <details>
+            <summary></summary>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, quia?</p>
+        </details>
+    </div>
+
+
+
+    <div id="baap">
+        <div id="beta">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJzMNWNPsA8KiUFY_YiEC7rub3JEDOCUXXHwJ40dp7&s"
+                alt="Error">
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    function fun(e) {
+        console.log(e.target.value)
+    }
+</script>
