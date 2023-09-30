@@ -254,3 +254,10 @@ myobj.age=25;
 delete myobj.name;
 
 console.log("myobj",myobj);
+
+
+
+Object.freeze(obj); // can not update , add and delete at normal level but can do all in nesting sections.
+
+Object.seal(obj); // can update but can not delete and add but can do all in  Nesting sections
+

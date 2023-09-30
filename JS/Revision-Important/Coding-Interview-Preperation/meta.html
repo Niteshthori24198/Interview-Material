@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="language" content="en">
+
+    <!-- // important -->
+
+   <!-- <meta http-equiv="refresh" content="5; URL=https://www.youtube.com/"> -->
+
+    <!-- // important -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="keywords" content="word1,word2">
+
+    <title>Document</title>
+
+    <style>
+        div {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        a[href *="#"] {
+            color: red;
+        }
+
+        :root {
+            --my-color: #007bff;
+            --my-font-family: 'Arial';
+            --my-bgclr: red;
+        }
+
+        h2 {
+            background-color: green;
+            color: var(--my-color);
+            font-family: var(--my-font-family);
+
+        }
+
+        p {
+            background-color: var(--my-bgclr);
+            color: var(--my-color);
+            font-family: var(--my-font-family);
+        }
+
+
+
+        :root{
+            --btnclr:blue;
+            --padd:30px;
+        }
+
+        button{
+            background-color: var(--btnclr);
+            padding: var(--padd);
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+
+        <a href="#">First One</a>
+
+        <a href="*#*">Second Two</a>
+
+        <a href="+#">Third Three</a>
+    </div>
+
+    <div>
+        <h2>Hello Css</h2>
+        <p>Variables</p>
+    </div>
+
+
+    <div id="parent">
+        <button class="a">1</button>
+        <button class="a">2</button>
+        <button class="a">3</button>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    // event delegation
+
+    document.getElementById('parent').addEventListener("click", (e) => {
+        if (e.target.matches('.a')) {
+            console.log(e.target.innerText)
+        }
+    })
+
+</script>

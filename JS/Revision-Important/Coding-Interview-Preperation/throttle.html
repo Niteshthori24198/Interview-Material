@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttle</title>
+</head>
+
+<body>
+
+    <input type="text" placeholder="Enter text here" id="inpvalue">
+
+
+</body>
+
+</html>
+
+
+<script>
+
+
+    let delay = 2000;
+
+    let curtime = 0;
+
+    let pretime = 0;
+
+    let inptag = document.getElementById('inpvalue');
+
+    inptag.addEventListener("keyup", throttle);
+
+    function throttle() {
+
+        curtime = new Date().getTime();
+
+        if (curtime - pretime > delay) {
+            console.log(inptag.value)
+            pretime = curtime
+        } else {
+            return
+        }
+
+    }
+
+
+</script>

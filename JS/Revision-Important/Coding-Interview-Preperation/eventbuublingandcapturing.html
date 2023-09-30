@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling And Capturing</title>
+
+
+    <style>
+        body {
+            border: 2px dashed;
+            background-color: red;
+            padding: 50px;
+
+        }
+
+        #p {
+            border: 2px solid blue;
+
+        }
+
+        button {
+            background-color: pink;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+    <div id="p">
+
+        <button>Click me</button>
+
+    </div>
+
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    let bdy = document.querySelector('body');
+
+    let div = document.querySelector('#p');
+
+    let btn = document.querySelector('button');
+
+
+    bdy.addEventListener("click", (e) => {
+        console.log('Body chal rhi hai');
+    },true)
+
+    div.addEventListener("click", (e) => {
+        e.stopImmediatePropagation()
+        console.log('div chal rha hai');
+    })
+
+    div.addEventListener("click", ()=>{
+        console.log('Control Uday control')
+    })
+
+    btn.addEventListener("click", (e) => {
+        console.log("Button chal rha hai");
+    })
+
+
+</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- debounce and throtle -->
+
+
+    <button>Click</button>
+
+
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    // let id;
+
+    // document.querySelector('button').addEventListener('click', (e) => {
+
+    //     if (id) {
+    //         clearTimeout(id)
+    //     }
+
+    //     id = setTimeout(() => {
+    //         console.log('Req made')
+    //     }, 2000)
+
+    // })
+
+
+    let id;
+
+
+    document.querySelector('button').addEventListener('click', (e) => {
+
+        if (id) {
+            return
+        }
+
+
+        id = setTimeout(() => {
+            console.log('Req made')
+            id = null
+        }, 2000)
+
+    })
+
+
+
+
+
+
+</script>

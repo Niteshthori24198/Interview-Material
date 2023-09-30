@@ -5,11 +5,11 @@ A generator in JavaScript is a special type of function that allows you to pause
 
 function* simpleGenerator() {
     console.log("Hello");
-    yield 10;
+    yield 1;
     console.log("World");
-    yield 20;
+    yield 2;
     console.log("Namste");
-    yield 30;
+    yield 3;
     console.log("Generator");
 }
 

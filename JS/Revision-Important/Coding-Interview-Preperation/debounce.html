@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounce</title>
+</head>
+
+<body>
+
+    <input type="text" placeholder="Enter text here" id="inpvalue">
+
+
+</body>
+
+</html>
+
+
+<script>
+
+    let id;
+
+
+    let inptag = document.getElementById('inpvalue');
+
+    inptag.addEventListener("keyup", debounce);
+
+    function debounce() {
+
+        if (id) {
+            clearTimeout(id);
+        }
+
+        id = setTimeout(() => {
+
+            console.log(inptag.value);
+
+        }, 3000);
+
+
+    }
+
+
+
+</script>
