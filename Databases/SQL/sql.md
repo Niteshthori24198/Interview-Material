@@ -85,3 +85,8 @@
 ## fuzzy search
 
     SELECT word FROM your_table WHERE SOUNDEX('target_word') = SOUNDEX(word);
+
+
+### Migration in MySQL refers to the process of managing database schema changes over time. It allows developers to version control and apply changes to the database structure, such as adding or modifying tables and columns, in an organized and reproducible way. This ensures that different versions of an application can work with the same database schema.
+
+### Seeders, on the other hand, are scripts or programs used during the migration process to populate database tables with initial data or predefined records. They help ensure that the database starts with necessary data, making it easier to set up and test applications.
