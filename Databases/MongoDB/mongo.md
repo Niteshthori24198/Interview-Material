@@ -58,7 +58,7 @@ MongoDB is a NoSQL, document-oriented database management system that is designe
 -   Benefits of Using Mongoose with MongoDB:
 
     - **Simplified Schema Management**: Mongoose provides a schema-based model for MongoDB, making it easier to define and enforce data structures.
-    - **Validatio**n**: It offers built-in validation for data integrity.
+    - **Validation**: It offers built-in validation for data integrity.
     - **Middleware**: Mongoose allows you to define pre and post-save hooks for data manipulation.
     - **Query Building**: Mongoose provides a fluent API for building complex queries.
     - **Population**: It supports data population, facilitating relationships between documents.

@@ -70,7 +70,7 @@ function listDirectoryContent(dirPath) {
 
 
 
-const targetDir = 'C:/Users/PC/Desktop/Final-Interview-Preperation/HTML'
+const targetDir = 'C:/Users/PC/Desktop/Final-Interview-Preperation/BackEnd/NODE-JS/Basic'
 
 // to check whether the dir exists or not
 

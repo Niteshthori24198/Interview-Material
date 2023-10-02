@@ -1,9 +1,6 @@
+const arg = process.argv;
+console.log(arg)
 
-// const argv = process.argv;
+const os = require('os');
 
-// console.log(argv)
-
-
-// const os = require('os')
-
-// console.log(os.cpus().length)
+console.log(os.cpus().length)
