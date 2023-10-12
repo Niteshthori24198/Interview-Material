@@ -261,3 +261,38 @@ Object.freeze(obj); // can not update , add and delete at normal level but can d
 
 Object.seal(obj); // can update but can not delete and add but can do all in  Nesting sections
 
+
+
+
+
+
+
+class Lund {
+
+    constructor(l) {
+        this.l = l;
+    }
+
+    Loki() {
+        return function () {
+            console.log(this.l);
+        }.bind(this);
+    }
+}
+
+
+let x = new Lund(1);
+
+let z = new Lund(2);
+
+let y = x.Loki();
+
+z.l=5;
+
+y();
+
+
+
+
+
+

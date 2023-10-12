@@ -71,3 +71,45 @@ function handleNestedData(data) {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+let obj = {
+    loki: { singh: "dsds" }
+}
+
+Object.deepFreez = function (obj) {
+    
+    for (let k in obj) {
+
+        Object.freeze(obj);
+
+        if (Array.isArray(obj[k])) {
+
+            for (let i = 0; i < obj[k].length; i++) {
+
+                Object.deepFreez(obj[k][i]);
+            }
+
+        } else if (typeof obj[k] === 'object') {
+            Object.deepFreez(obj[k])
+        }
+    }
+}
+
+
+
+Object.deepFreez(obj);
+
+obj.loki.singh = "chande";
+
+console.log(obj);
+
+
