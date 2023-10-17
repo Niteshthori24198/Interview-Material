@@ -81,7 +81,7 @@ function handleNestedData(data) {
 
 
 
-let obj = {
+let obj1 = {
     loki: { singh: "dsds" }
 }
 
@@ -113,3 +113,24 @@ obj.loki.singh = "chande";
 console.log(obj);
 
 
+
+
+
+
+
+
+let obj = {}
+
+let obj2 = {}
+
+function fun(key, value) {
+
+    this[key] = value
+
+}
+
+fun.call(obj, "name", "Nitesh");
+
+fun.call(obj2, "age", 25);
+
+console.log(obj,obj1)

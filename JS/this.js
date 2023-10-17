@@ -273,7 +273,7 @@ class Lund {
         this.l = l;
     }
 
-    Loki() {
+    get Loki() {
         return function () {
             console.log(this.l);
         }.bind(this);
@@ -283,14 +283,7 @@ class Lund {
 
 let x = new Lund(1);
 
-let z = new Lund(2);
-
-let y = x.Loki();
-
-z.l=5;
-
-y();
-
+x.Loki()
 
 
 

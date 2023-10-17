@@ -8,7 +8,6 @@ function greet(){
 
     function getcount(){
        count++
-
     }
 
     function greeting(name){

@@ -24,32 +24,24 @@ console.log(generator.next()); // { value: undefined, done: true }
 
 
 
-// example : iterate array async
 
+let a = [1, 2, 3]
 
-function* asyncArrayIterator(arr) {
-
-    for (let i = 0; i < arr.length; i++) {
-
-        yield new Promise(resolve => setTimeout(() => resolve(arr[i]), 1000));
-
+function* fun() {
+    let i = 0
+    while (i < a.length) {
+        yield a[i];
+        i++;
     }
+
 }
 
-const asyncArr = [1, 2, 3, 4, 5];
+const gen = fun();
 
-const iterator = asyncArrayIterator(asyncArr);
-
-
-(async () => {
-
-    for (const value of iterator) {
-
-        console.log(await value);
-
-    }
-
-})();
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());
 
 
 

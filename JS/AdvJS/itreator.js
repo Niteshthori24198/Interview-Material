@@ -84,3 +84,56 @@ while (!nextdata.done) {
 }
 
 
+
+
+
+
+// Iterator by class : Legend Bakshi Sir
+
+
+
+let a = [1, 2, 3, 4, 5];
+
+let b = {
+    name: 'LOL',
+    age: 12
+}
+
+
+class Iterator {
+
+    i;
+    keys;
+    constructor(ds) {
+        this.ds = ds;
+        if (typeof this.ds === 'object') {
+            this.keys = Object.keys(this.ds);
+        }
+        this.i = 0;
+    }
+
+    next() {
+
+        if (Array.isArray(this.ds)) {
+
+            if (this.i < this.ds.length) {
+                return { value: this.ds[this.i++], done: false }
+            }
+            return { value: undefined, done: true }
+        }
+        else if (typeof this.ds === 'object') {
+            if (this.i < this.keys.length) {
+                return { value: this.ds[this.keys[this.i++]], done: false }
+            }
+            return { value: undefined, done: true }
+
+        }
+    }
+}
+
+const obj = new Iterator(b);
+
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+

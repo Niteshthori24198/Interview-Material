@@ -145,3 +145,6 @@ prototype is a property of constructor functions used to define the prototype fo
     - More exceptions are thrown for common mistakes.
   
 
+### How JS run in browser?
+
+-   JavaScript runs in web browsers using JavaScript engines like V8, which execute JavaScript code. When a web page loads, the browser parses HTML, creating the Document Object Model (DOM). When the browser encounters JavaScript, it fetches and executes it. JavaScript can manipulate the DOM, respond to user interactions, and make asynchronous network requests. V8, developed by Google, is one of the most prevalent JavaScript engines, responsible for parsing and executing the code efficiently. It uses just-in-time (JIT) compilation to convert JavaScript into machine code for faster execution, optimizing performance. This ensures dynamic, interactive web applications while maintaining security through a sandboxed environment.

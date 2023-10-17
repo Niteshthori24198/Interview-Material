@@ -9,15 +9,7 @@
 
 <body>
 
-
-    <!-- debounce and throtle -->
-
-
-    <button>Click</button>
-
-
-
-
+    <button>Click here</button>
 
 </body>
 
@@ -25,41 +17,20 @@
 
 <script>
 
-    // let id;
-
-    // document.querySelector('button').addEventListener('click', (e) => {
-
-    //     if (id) {
-    //         clearTimeout(id)
-    //     }
-
-    //     id = setTimeout(() => {
-    //         console.log('Req made')
-    //     }, 2000)
-
-    // })
-
-
     let id;
 
-
-    document.querySelector('button').addEventListener('click', (e) => {
+    document.querySelector('button').addEventListener("click", (e) => {
 
         if (id) {
             return
         }
 
-
         id = setTimeout(() => {
-            console.log('Req made')
-            id = null
-        }, 2000)
 
+            console.log('Req sent');
+            id = null;
+        }, 2000);
     })
-
-
-
-
 
 
 </script>
