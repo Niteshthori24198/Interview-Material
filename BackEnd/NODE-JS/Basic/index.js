@@ -66,7 +66,7 @@ function handlewrite(data) {
 
     const writestream = fs.createWriteStream("./out.txt")
 
-    writestream.write(data)
+    writestream.write(data);
 
     writestream.end() // to close the stream
 

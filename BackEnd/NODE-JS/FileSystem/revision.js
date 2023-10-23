@@ -3,62 +3,51 @@ const fs = require('fs')
 
 const path = require('path')
 
-const targetDir = 'C:/Users/PC/Desktop/Final-Interview-Preperation/BackEnd/NODE-JS/Basic'
+const tdir = 'C:/Users/PC/Desktop/Final-Interview-Preperation/BackEnd/NODE-JS/Basic';
 
-if (fs.existsSync(targetDir)) {
-    listDir(targetDir)
-} else {
-    console.log('error');
+const isvalid = fs.statSync(tdir);
+
+if (isvalid) {
+    listdir(tdir)
 }
 
 
-function listDir(Dirpath) {
-    try {
+function listdir(dir) {
 
-        let files = [];
+    let files = [];
 
-        let folders = []
+    let folders = [];
 
-        const filesAndFolders = fs.readdirSync(Dirpath);
+    let fileAndfolders = fs.readdirSync(dir);
 
-        for (let item of filesAndFolders) {
+    for (let item of fileAndfolders) {
 
-            const path1 = path.join(Dirpath, item);
+        const itempath = path.join(dir, item);
 
-            const isfile = fs.statSync(path1);
+        let isfile = fs.statSync(itempath).isFile();
 
-            if (isfile) {
-                files.push(item)
-            } else {
-                folders.push(item)
-            }
-
+        if (isfile) {
+            files.push(item);
+        } else {
+            folders.push(item);
         }
+    }
+
+    console.log("Files -- > ");
+
+    for (let file of files) {
+        console.log(file)
+    }
+
+    console.log("FOlders -- >");
+
+    for (let folder of folders) {
+        console.log(folders);
+    }
 
 
-
-        console.log('Files : ')
-        for (let file of files) {
-            console.log(file)
-        }
-
-        // display folders 
-
-        console.log('Folders :')
-        for (let folder of folders) {
-            console.log(folder)
-        }
-
-
-        for(let folder of folders){
-
-            const folderpath = path.join(Dirpath,folder);
-
-            listDir(folderpath)
-
-        }
-
-    } catch (error) {
-        console.log(error)
+    for(let item of folders){
+        let tfol = path.join(dir,item)
+        listdir(tfol)
     }
 }

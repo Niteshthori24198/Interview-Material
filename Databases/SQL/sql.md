@@ -90,3 +90,100 @@
 ### Migration in MySQL refers to the process of managing database schema changes over time. It allows developers to version control and apply changes to the database structure, such as adding or modifying tables and columns, in an organized and reproducible way. This ensures that different versions of an application can work with the same database schema.
 
 ### Seeders, on the other hand, are scripts or programs used during the migration process to populate database tables with initial data or predefined records. They help ensure that the database starts with necessary data, making it easier to set up and test applications.
+
+
+
+### SQL is a language used for managing and querying relational databases. It's a standard for working with data. MySQL, on the other hand, is a specific open-source relational database management system (RDBMS) that uses SQL as its query language. While SQL is a language, MySQL is the software that implements it. Think of SQL as a language like English, and MySQL as a book that uses that language. There are other books (other RDBMSs) that use the same language, such as PostgreSQL and Oracle, but they have their unique features and ways of organizing data.
+
+
+### The MVC (Model-View-Controller) structure is a software architectural pattern used in application development to separate and organize code into three distinct components: Model, View, and Controller. This separation enhances the maintainability and scalability of software.
+
+-   Model: The Model represents the application's data and business logic. It manages data storage, retrieval, and manipulation. In a database-driven app, the Model communicates with the database and ensures data integrity.
+
+-   View: The View is responsible for the presentation layer, representing the user interface. It displays data to users and handles user interactions. Views are kept as passive as possible, meaning they contain minimal logic and directly reflect the state of the Model.
+
+-   Controller: The Controller acts as an intermediary, managing user input and coordinating communication between the Model and View. It interprets user actions, processes requests, and triggers changes in the Model and View accordingly.
+
+
+
+### Library: Think of a library as a collection of specialized tools that you can use for different tasks. For instance, in the context of programming, the Python Standard Library provides a range of functions and modules for various tasks. You choose and use these functions when needed in your code, giving you more flexibility and control.
+
+### Framework: A framework is like a pre-built structure for a specific purpose. Imagine a construction framework for building houses. It comes with blueprints, predefined designs, and materials. You can't change the core structure much, but it speeds up house construction significantly by providing a solid foundation.
+
+
+
+
+### Window functions : - Window functions, also known as windowing or analytical functions, are a category of SQL functions that perform a calculation across a set of rows related to the current row. These functions allow you to work with a "window" or subset of rows within your result set, and they are commonly used for tasks like ranking, aggregation, and calculating running totals. Window functions do not group rows into a single result but return a value for each row based on a specific window or frame of rows.
+
+
+
+-   Example : Let's given an emp table : 
+
+![Alt text](image-3.png)
+
+
+-   row_number() : 
+        
+        select * , row_number() over() as rn from emp;
+        
+![Alt text](image-4.png)
+
+        select * from (select * , row_number() over() as rn from emp) as t where rn%2=0;
+        
+![Alt text](image-5.png)
+
+        select * from (select * , row_number() over(partition by deptname order by id) as rn from emp) as t;
+
+![Alt text](image-6.png)
+
+
+-   rank() : 
+
+        select * , rank() over() as rnk from emp;
+        
+![Alt text](image-7.png)
+
+        select *, rank() over(partition by deptname) as rnk from emp;
+        
+![Alt text](image-8.png)
+
+        select *, rank() over(partition by deptname order by id) as rnk from emp;
+        
+![Alt text](image-9.png)
+
+        select * from (select *, rank() over(partition by deptname order by id) as rnk from emp) as e where rnk<2;
+        
+![Alt text](image-10.png)
+
+        select *, rank() over(partition by deptname order by salary) as sal_rank from emp;
+
+![Alt text](image-12.png)
+
+
+-   dense_rank() : It's same as rank only. the only difference it creates as it will not skip the values for repetitions which is skipped in case of rank.
+
+
+-   max/min/avg : -
+
+        select *, min(salary) over(partition by deptname order by id) as min_sal from emp;
+
+![Alt text](image-11.png)
+
+
+-   lag/lead() : - It looks behind for each row. we can specify number of rows to look back as well as default value if not having any data to look into.
+
+        select *, lag(salary) over() as prev_sal from emp;
+
+![Alt text](image-14.png)
+
+        select *, lag(salary, 2 , 0) over(partition by deptname) as prev_sal from emp;
+        
+![Alt text](image-15.png)
+       
+
+        select *, lead(salary, 2 , 0) over(partition by deptname) as prev_sal from emp;
+
+![Alt text](image-16.png)
+
+
+
