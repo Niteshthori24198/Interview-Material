@@ -169,7 +169,7 @@ The child_process module in Node.js provides a way to create and manage child pr
 
 -   **Parallel Processing**: When you have multiple tasks that can be executed concurrently, you can create child processes to perform these tasks in parallel, improving performance.
 
--   **Process Managemen**t**: You can create and manage child processes, allowing you to start, stop, and communicate with them as needed.
+-   **Process Management**: You can create and manage child processes, allowing you to start, stop, and communicate with them as needed.
 
 
 

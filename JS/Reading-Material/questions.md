@@ -99,6 +99,8 @@ Message queues are a type of communication system used in distributed systems. T
 
     Node.js is non-blocking thanks to its event-driven, single-threaded architecture. Instead of creating a new thread for each client request, it uses a single thread to handle multiple concurrent connections. When an asynchronous operation, such as reading a file or making a network request, is initiated, Node.js continues executing the next operation without waiting for the first one to complete. Once the asynchronous operation is finished, a callback function is called to handle the result. This approach prevents the server from getting blocked while waiting for time-consuming tasks, making it highly efficient in handling large numbers of concurrent connections.
 
+    Node.js is known for its single-threaded, event-driven architecture. However, it does support the concept of concurrency through the use of asynchronous programming and the event loop. While Node.js itself does not directly provide support for multiple threads in the traditional sense, you can achieve parallelism by using techniques such as clustering, worker threads, or by offloading CPU-intensive tasks to separate processes.
+
 
 ## How can you end up blocking your main thread in Node.js?
 

@@ -14,7 +14,7 @@
             width: 50%;
         }
 
-        a[href$="l"] {
+        a[href="l"] {
             color: red;
         }
 
@@ -63,7 +63,7 @@
             margin: 150px auto;
             gap: 10px;
             justify-content: center;
-            /* position: relative;  */
+            /* position: relative;   */
             height: 500px;
            
         }
@@ -92,13 +92,25 @@
             /* width: 400px; */
         }
 
+        :root{
+            --clr:red;
+            --bdr:5px solid red;
+        }
+
+        #x{
+            color: var(--clr);
+            border: var(--bdr);
+        }
+
     </style>
 </head>
 
 <body>
 
 
-
+    <div>
+        <h2 id="x">Nitesh</h2>
+    </div>
 
 
     <!-- flex properties-->

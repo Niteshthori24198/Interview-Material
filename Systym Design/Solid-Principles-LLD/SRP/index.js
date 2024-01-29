@@ -24,7 +24,6 @@ class Student {
     notify() {
         // send emails to students.
     }
-
 }
 
 

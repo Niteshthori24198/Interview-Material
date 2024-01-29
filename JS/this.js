@@ -122,7 +122,11 @@ const ob = {
     }
 };
 
-ob.printValue(); // undefined bcz settimeout is Async and it will be resolved outside browser where this point to the window object.
+ob.printValue();
+
+
+
+// undefined bcz settimeout is Async and it will be resolved outside browser where this point to the window object.
 
 
 

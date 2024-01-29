@@ -22,13 +22,11 @@
     document.querySelector('button').addEventListener("click", (e) => {
 
         if (id) {
-            return
+            clearTimeout(id);
         }
 
         id = setTimeout(() => {
-
             console.log('Req sent');
-            id = null;
         }, 2000);
     })
 
