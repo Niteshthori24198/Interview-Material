@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #e {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 100px;
+            transform: translate(200px,50px);
+            /* Moves the element in X - axis and Y - axis as per value passed from it's normal position */
+        }
+
+        #e:hover {
+            /* Rotates the ele by given deg */
+            transform: rotate(90deg);
+
+            /* Increase or decrese the ele size with given (X,Y) value like :2 (doubles size) , 0.5 (make half size) as per respective direction */
+            transform: scale(1.5,2); 
+
+            /* It will skew the ele in (X,Y) dimension as per value in deg */
+            transform: skew(45deg,30deg); 
+
+            /* We can apply multile transformation in matrix form */
+            transform: matrix(1, 2, 0.2, 1, 0, 0); 
+
+            transform: translate(100px, 50px) rotate(45deg) scale(1.5,3); /* We can combine these properties as well, which applies one after other */
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="e">Box</div>
+
+</body>
+
+</html>
