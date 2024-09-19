@@ -90,3 +90,18 @@ function lwda(){
 let lwda=5;
 
 console.log(lwda);
+
+
+
+// Guess output
+
+
+let a = [1, 2, 3, 4, 5, 6];
+
+let r = a.filter((v, i) => {
+    if (i % 2 == 0) {
+        return v**v;
+    } return v;
+})
+
+console.log(r)
