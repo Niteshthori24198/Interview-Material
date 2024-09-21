@@ -25,3 +25,31 @@ db.getCollection('schema').aggregate([
         }
     }
 ])
+
+
+
+
+
+// expr + condition
+
+
+db.getCollection("data").aggregate([{
+    $match: {
+        $expr: {
+            $gt: ["$qty", 200]
+        }
+    }
+}, {
+    $project: {
+        qty: 1,
+        warning: {
+            $cond: {
+                if: { $lte: ["$qty", 250] },
+                then: false,
+                else: true
+            }
+        }
+    }
+}])
+
+
