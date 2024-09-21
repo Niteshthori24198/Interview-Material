@@ -18,6 +18,13 @@ db.getCollection('PlaygroundDB').distinct('name')
 
 db.getCollection('PlaygroundDB').count({name:'Alice'})
 
+
+// where filter
+
+db.getCollection("PlaygroundDB").find({
+   $where:"this.age>=24 && this.age<26"
+})
+
 // or use below one
 
 db.getCollection('PlaygroundDB').countDocuments({name:'Alice'})
