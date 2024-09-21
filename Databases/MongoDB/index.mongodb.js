@@ -29,6 +29,9 @@ db.getCollection('PlaygroundDB').updateOne({name:'Kyle'}, { $set: { name: 'Alice
 db.getCollection('PlaygroundDB').updateOne({_id:new ObjectId('64fe0b4da52ed4588f4dc6f2')}, {$set: {age:21}})
 
 
+db.getCollection("PlaygroundDB").updateMany({ $or: [{ _id: new ObjectId("66eee6b9685dd98910b0a724") }, { _id: new ObjectId("66eee698021e96ce7649bf23") }] }, { $set: { salary: 150 } })
+
+
 // to remove feild
 
 db.getCollection('PlaygroundDB').updateOne({_id:new ObjectId('64fe0b4da52ed4588f4dc6f2')}, { $unset: {age:1} });
