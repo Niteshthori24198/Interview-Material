@@ -137,7 +137,7 @@
 ![Alt text](image-6.png)
 
 
--   rank() : 
+-   rank() : ORDER BY: Specifies the column(s) based on which the ranking will be assigned. Ranks are given based on the sorted order.
 
         select * , rank() over() as rnk from emp;
         
