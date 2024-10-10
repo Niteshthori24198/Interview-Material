@@ -137,3 +137,27 @@ console.log(obj.next());
 console.log(obj.next());
 console.log(obj.next());
 
+
+
+
+
+
+let map = new Map();
+
+map.set("name", "Nitesh");
+map.set("age", 10)
+
+
+let it = map.entries();
+
+let res = it.next();
+
+while (!res.done) {
+    const [key, value] = res.value;
+    console.log(key, value);
+    res = it.next()
+}
+
+
+
+
