@@ -252,6 +252,7 @@ Message queues are a type of communication system used in distributed systems. T
 ## What are models ?
 
     In Node.js, models are commonly used in web applications and APIs to interact with databases, perform data validation, and encapsulate the logic related to data manipulation. They help separate concerns and keep the application's code organized and maintainable.
+Models are used to simplify the interaction between data and application logic. They provide an abstraction layer that allows developers to work with data in a structured and organized way without dealing with complex database queries directly. Models enforce consistency by defining the structure and rules for data, ensuring its integrity. They also promote code reusability, as once a model is defined, it can be reused for various operations like creating, reading, or updating data.
 
 
 ## What are pre and post hooks?
