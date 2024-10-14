@@ -1,5 +1,9 @@
 # Node - js Interview Preperation
 
+## What is Node.js
+Node.js is a runtime environment that allows you to run JavaScript code outside of a web browser. Normally, JavaScript is used to make web pages interactive in the browser, but with Node.js, you can use JavaScript to write server-side applications, meaning you can build things like web servers, command-line tools, or even APIs.
+
+It works by using Google's V8 JavaScript engine (the same one used in Chrome) to execute JavaScript code very fast. One of its big strengths is that it's non-blocking and event-driven, meaning it can handle multiple tasks at the same time without waiting for one to finish before starting the next. This makes it great for building fast, scalable applications like chat apps or real-time services.
 
 ## Event-Driven Architecture in Node.js:
 
