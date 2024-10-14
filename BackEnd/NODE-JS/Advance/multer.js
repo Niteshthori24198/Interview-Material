@@ -48,6 +48,58 @@ app.get('/upload-form', (req, res) => {
 
 
 
+
+
+
+
+
+// Multiple files at a time
+
+
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+const upload = multer({ storage: storage });
+
+const app = express();
+app.use(express.json());
+
+app.get("/uploadfile", (req, res) => {
+    res.sendFile(path.join(__dirname, "/index.html"));
+});
+
+app.post('/upload', upload.array('file'), (req, res) => {
+    if (req.files && req.files.length > 0) {
+        console.log("Files uploaded successfully");
+        res.end("Upload complete");
+    } else {
+        console.log("No files were uploaded.");
+        res.status(400).send("No files were uploaded");
+    }
+});
+
+app.listen(3000, () => {
+    console.log("Server started on port 3000");
+});
+
+
+
+
+
+
+
+
+
 app.listen(3000, () => {
     console.log('server running at 3000')
 })
