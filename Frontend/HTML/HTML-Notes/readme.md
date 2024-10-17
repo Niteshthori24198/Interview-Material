@@ -86,3 +86,36 @@
 This is useful when a script relies on DOM elements or needs to maintain the order of execution relative to other scripts or the page's structure.
 
 
+# Difference between `innerText` and `textContent`
+
+## 1. Rendering and Hidden Elements
+- **`innerText`:**
+  - Takes into account styles applied via CSS (e.g., `display: none`, `visibility: hidden`).
+  - Returns only the visible text to the user, ignoring hidden elements.
+  - Triggers layout calculations (reflows) since it depends on the rendered appearance.
+
+- **`textContent`:**
+  - Returns all the text inside an element, including hidden elements.
+  - Ignores applied styles that make some text invisible to the user.
+  - Does not trigger layout reflows, making it generally faster.
+
+## 2. Whitespace Handling
+- **`innerText`:**
+  - Collapses consecutive whitespace characters (spaces, tabs, newlines) into a single space, similar to how the text appears on the page.
+
+- **`textContent`:**
+  - Preserves all whitespace exactly as it appears in the DOM, including multiple spaces and newlines.
+
+## 3. Performance
+- **`innerText`:**
+  - Slower due to style computation and page reflowing to determine what’s visible.
+
+- **`textContent`:**
+  - Faster, as it reads the content directly from the DOM without affecting layout or triggering reflows.
+
+## Example
+
+```html
+<div id="example" style="display:none;">
+  Hello   World
+</div>
