@@ -80,37 +80,73 @@ function handleNestedData(data) {
 
 
 
+Object.prototype.deepFreeze = function () {
 
-let obj1 = {
-    loki: { singh: "dsds" }
-}
+    Object.freeze(this);
 
-Object.deepFreez = function (obj) {
-    
-    for (let k in obj) {
-
-        Object.freeze(obj);
-
-        if (Array.isArray(obj[k])) {
-
-            for (let i = 0; i < obj[k].length; i++) {
-
-                Object.deepFreez(obj[k][i]);
+    if (Array.isArray(this)) {
+        for (let i = 0; i < this.length; i++) {
+            if (typeof this[i] == 'object') {
+                this[i].deepFreeze()
             }
-
-        } else if (typeof obj[k] === 'object') {
-            Object.deepFreez(obj[k])
+        }
+    }
+    else {
+        for (let k in this) {
+            if (Array.isArray(this[k])) {
+                for (let i = 0; i < this[k].length; i++) {
+                    this[k].deepFreeze()
+                }
+            } else if (typeof this[k] == 'object') {
+                this[k].deepFreeze()
+            }
         }
     }
 }
 
 
 
-Object.deepFreez(obj);
+let a = {
+    name: "loki",
+    phone: [
+        456,
+        [789, [6969]],
+        {
+            tel: 123,
+            pin: 111
+        }
+    ],
+    add: {
+        state: "raj"
+    }
+}
 
-obj.loki.singh = "chande";
 
-console.log(obj);
+a.deepFreeze()
+
+a.age = 25;
+delete a.name
+a.phone = 456
+
+a.phone[0] = 1010
+a.phone[1] = {}
+a.phone[2].tel = 777
+a.phone[1][1][0] = 0
+
+a.add = "xxx"
+
+a.add.state = {
+    city: "aaa"
+}
+
+a.add.lwda = "lasan"
+
+delete a.add.state
+
+console.log(a, a.phone)
+
+
+
 
 
 
