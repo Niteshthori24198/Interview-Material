@@ -90,3 +90,17 @@ app.get("/", [m1, m2], function (req, res, next) {
 
 
 app.listen(3000)
+
+
+
+
+var c = 1
+function c() {
+    return 2
+}
+
+console.log(typeof c) // number 
+
+// Reason :- Due to hoisting first function is moved to top and then c is also hoisted but the value is assigned in run time so when it encounters c=1 then it override function with value 1.
+
+// if we use let in place of var then it will through error due to it's local scope. as in same scope we cannot have two things with same name.
