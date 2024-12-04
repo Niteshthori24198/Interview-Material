@@ -116,6 +116,15 @@ This is useful when a script relies on DOM elements or needs to maintain the ord
 ## Example
 
 ```html
-<div id="example" style="display:none;">
-  Hello   World
+<div id="visible">
+          Hello, <span style=" display: none;">This is hidden text!</span> How are you?
 </div>
+  
+<script>
+  const visibleElement = document.querySelector('#visible');
+
+  console.log('innerText:', visibleElement.innerText); // Output: "Hello, How are you?"
+
+  console.log('textContent:', visibleElement.textContent); // Output: "Hello, This is hidden text! How are you?"
+
+</script>
