@@ -300,6 +300,54 @@ git cherry-pick <commit_hash>
 
 ---
 
+
+## How to Delete a Git Branch (Locally and Remotely)
+
+## Deleting a Branch Locally
+To delete a local branch in Git, use the following command:
+
+```bash
+git branch -d <branch-name>
+```
+
+- **`-d`**: Deletes the branch only if it has been fully merged with the current branch or other branches.
+- If the branch has unmerged changes and you want to delete it forcefully, use:
+
+```bash
+git branch -D <branch-name>
+```
+
+### Example:
+```bash
+git branch -d feature-branch
+```
+
+## Deleting a Branch Remotely
+To delete a branch from the remote repository, use the following command:
+
+```bash
+git push <remote-name> --delete <branch-name>
+```
+
+- `<remote-name>`: Usually `origin`.
+- `<branch-name>`: The branch you want to delete.
+
+### Example:
+```bash
+git push origin --delete feature-branch
+```
+
+## Verify Deletion
+- **Local Branch**: To ensure the branch is deleted locally, list branches with:
+  ```bash
+  git branch
+  ```
+- **Remote Branch**: To ensure the branch is deleted remotely, fetch and list remote branches:
+  ```bash
+  git fetch --prune
+  git branch -r
+  ```
+
 <iframe src="./git.pdf" width="100%" height="100vh"></iframe>
 
 This cheatsheet covers Git's essential and advanced commands to help you navigate and manage your repositories effectively. Happy coding 💖!
