@@ -56,6 +56,22 @@ git commit -m "Your commit message"
 
 **Why:** To create a snapshot of your project's state.
 
+### Note :- We can combine above two steps into one and can do add and commit using one command itself.
+
+```bash
+git commit -a -m "your commit message"
+```
+
+### 5. Push Changes
+
+```bash
+git push origin <branch-name>"
+```
+
+**Usage:** Push changes from the local branch to remote branch. 
+
+**Why:** To create a snapshot of your project's state.
+
 ---
 
 ## Branching, Merging, and Rebasing
