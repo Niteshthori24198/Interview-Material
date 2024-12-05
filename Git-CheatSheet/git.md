@@ -98,6 +98,13 @@ git checkout <branch_name>
 
 **Why:** To work on or test code in a different branch.
 
+
+### Note :- We can combine above two steps into one and can do the same thing using one command itself.
+
+```bash
+git checkout -b <branch-name>
+```
+
 ---
 
 ### 3. Merge Branches
