@@ -76,3 +76,101 @@ function handleobj(obj) {
     }
     return res;
 }
+
+
+
+
+
+
+
+
+
+
+/* Alternate way to do the same */
+
+
+
+
+let obj = {
+
+    name: "loki",
+
+    age: 25,
+
+    address: {
+
+        state: {
+            city: 'SGNR'
+        }
+    },
+    data: [
+        [1, 2],
+        {
+            phone: 123
+        },
+        {
+            email: 'abc@1'
+        },
+        {
+            job: {
+                developer: {
+                    chutiya: 'yes'
+                }
+            }
+        }
+    ]
+
+}
+
+let arr = [1, 2, [3, 4, [5, [6]]], { name: "Nitesh", phone: [100, 101, 102] }];
+
+const obj1 = clone(obj);
+
+const arr1 = clone(arr);
+
+
+
+function clone(ds) {
+
+    if (Array.isArray(ds)) {
+        return arrclone(ds);
+    } else if (typeof ds === 'object') {
+        return objclone(ds);
+    }
+
+}
+
+
+function arrclone(ds) {
+    let b = [];
+
+    for (let i = 0; i < ds.length; i++) {
+        if (typeof ds[i] == 'object') {
+            b.push(clone(ds[i]));
+        } else {
+            b.push(ds[i])
+        }
+    }
+
+    return b;
+}
+
+
+function objclone(ds) {
+    let b = {};
+
+    for (let k in ds) {
+        if (typeof ds[k] == 'object') {
+            b[k] = clone(ds[k]);
+        } else {
+            b[k] = ds[k];
+        }
+    }
+
+    return b;
+}
+
+
+
+
+
